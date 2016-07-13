@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>DevTeam.Auth.BearerAuthentication</id>
+    <version>1.0.1</version>
+    <title>Bearer Authentication</title>
+    <authors>Dev Team Inc.</authors>
+    <owners>Dev Team Inc.</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Bearer Authentication for website users.</description>
+    <copyright>Copyright 2016</copyright>
+    <tags>OAuth Bearer Authentication</tags>
+    <dependencies>
+	  <dependency id="Microsoft.AspNet.Identity.Owin" version="2.0.1" />
+	</dependencies>
+  </metadata>
+</package>
