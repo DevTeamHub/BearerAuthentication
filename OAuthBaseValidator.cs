@@ -16,10 +16,7 @@ namespace DevTeam.BearerAuthentication
     {
         protected readonly TContext Context;
 
-        protected virtual TService Service
-        {
-            get { return Context.OwinContext.GetUserManager<TService>(); }
-        }
+        protected virtual TService Service => Context.OwinContext.GetUserManager<TService>();
 
         protected OAuthBaseValidator(TContext context)
         {

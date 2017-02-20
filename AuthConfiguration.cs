@@ -29,16 +29,16 @@ namespace DevTeam.BearerAuthentication
             return manager;
         }
 
-        public void Configure(IAppBuilder app)
+        public void Configure(IAppBuilder app, string tokenEndpoint = "/Token", string externalEndpoint = "/api/Account/ExternalLogin", int expiredTime = 14, bool allowInsecureHttp = true)
         {
             app.CreatePerOwinContext<TUserManager>(Create);
             app.UseOAuthBearerTokens(new OAuthAuthorizationServerOptions
             {
-                TokenEndpointPath = new PathString("/Token"),
+                TokenEndpointPath = new PathString(tokenEndpoint),
                 Provider = new ApplicationOAuthProvider<TUser, TUserManager>("self"),
-                AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                AllowInsecureHttp = true
+                AuthorizeEndpointPath = new PathString(externalEndpoint),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(expiredTime),
+                AllowInsecureHttp = allowInsecureHttp
             });
         }
     }
